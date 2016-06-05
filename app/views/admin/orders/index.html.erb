@@ -1,0 +1,164 @@
+<h1>订单</h1>
+<div style="margin-top: 20px;">
+  <div>
+    <select name="status">
+      <option value="-1"<% if @order_status == -1 %> selected="selected"<% end %>>所有状态的订单</option>
+      <% for status in Order.statuses %>
+      <% if status[0] != 'order_deleted' %>
+      <option value="<%= status[1] %>"<% if @order_status == status[1] %> selected="selected"<% end %>><%= t(status[0]) %></option>
+      <% end %>
+      <% end %>
+    </select>
+    <button class="btn btn-primary btn-filter-orders" style="margin-left: 10px;">筛选</button>
+  </div>
+  <div style="margin-top: 5px;">
+  总共<span class="order-total-count"><%= @orders_total_count %></span>个订单
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <table id="orders" class="table">
+    <thead>
+      <tr>
+        <td class="col-order">订单</td>
+        <td class="col-receiver">收件人</td>
+        <td class="col-date">创建时间</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% if @orders.length > 0 %>
+        <% for order in @orders %>
+          <% product = order.product %>
+          <% variants = JSON.parse(order.variants) %>
+          <tr id="order-<%= order.id %>">
+            <td class="col-order">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="col-name">编号：</span>
+                  <span class="col-value"><%= order.id %></span>
+                </div>            
+                <div class="col-sm-8">
+                  <span class="col-name">状态：</span>
+                  <span class="col-value col-status" data-status="<%= Order.statuses[order.status] %>"><%= t(order.status) %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">商品：</span>
+                    <span class="col-value"><%= product.name %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">数量：</span>
+                    <span class="col-value"><%= order.count %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">总价：</span>
+                    <span class="col-value"><%= product.price * order.count %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">颜色：</span>
+                    <span class="col-value"><%= t(variants['color']) %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">尺寸：</span>
+                    <span class="col-value"><%= variants['size'] %></span>
+                </div> 
+                <div class="col-sm-12 row-actions">
+                  <button class="btn-link btn-edit-order">编辑</button>
+                </div>
+              </div>
+            </td>
+            <td class="col-receiver">
+              <div class="row">
+                <div class="col-sm-4">
+                    <span class="col-name">姓名：</span>
+                    <span class="col-value"><%= order.receiver_name %></span>
+                </div>
+                <div class="col-sm-8">
+                    <span class="col-name">手机号：</span>
+                    <span class="col-value"><%= order.receiver_phone %></span>
+                </div>
+                <div class="col-sm-12">
+                    <span class="col-name">地址：</span>
+                    <span class="col-value"><%= order.receiver_address %></span>
+                </div>
+              </div>
+            </td>
+            <td class="col-date"><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr><td colspan="3">没有相应的订单</td></tr>
+      <% end %>
+
+    </tbody>
+    <tfoot>
+        <td class="col-order">订单</td>
+        <td class="col-receiver">收件人</td>
+        <td class="col-date">创建时间</td>
+    </tfoot>
+  </table>
+</div>
+
+<div id="editOrderTemplate" style="display:none;">
+  <div>
+    <div class="title">编辑</div>
+    <div>
+      <span class="col-name">状态：</span>
+      <select name="status">
+        <% for status in Order.statuses %>
+          <% if status[0] != 'order_deleted' %>
+          <option value="<%= status[1] %>"><%= t(status[0]) %></option>
+          <% end %>        
+        <% end %>
+      </select>
+    </div>
+    <div class="container-footer">
+      <button class="btn btn-cancel">取消</button>
+      <div class="container-footer-right">
+        <button class="btn btn-primary btn-update-order"><span class="glyphicon glyphicon-refresh spin"></span><span class="normal-text">更新</span><span class="spin-text">更新中...</span></button>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div class="container-pagination text-center">
+  <nav>
+    <ul class="pagination">
+
+      <% if @current_page == 1 %>
+      <li class="disabled">
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <% else %>
+      <li>
+        <a data-page="<%= @current_page - 1 %>" href="#">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <% end %>
+
+      <% for i in @page_start..@page_end %>
+        <% if i == @current_page %>
+        <li class="active"><a><%= i %></a></li>
+        <% else %>
+        <li><a data-page="<%= i %>" href="#"><%= i %></a></li>
+        <% end %>
+      <% end %>
+
+      <% if @current_page == @page_num %>
+      <li class="disabled">
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <% else %>
+      <li>
+        <a data-page="<%= @current_page + 1 %>" href="#"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <% end %>
+
+    </ul>
+  </nav>
+</div>

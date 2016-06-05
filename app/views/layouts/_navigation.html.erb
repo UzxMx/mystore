@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<% if admin_signed_in? %>
-				<li><%= t('admin.navigation.orders') %></li>
+				<li><%= link_to t('admin.navigation.orders'), admin_orders_path %></li>
 				<li><%= link_to t('admin.navigation.sign_out'), destroy_admin_session_path, :method=>'delete' %></li>
 				<% else %>
 				<li><%= link_to t('admin.navigation.sign_in'), new_admin_session_path %></li>

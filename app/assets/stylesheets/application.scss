@@ -14,8 +14,10 @@
  *= require_self
  */
 
+@import "compass/css3";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "toastr";
 
 html {
   height: 100%;
@@ -23,7 +25,7 @@ html {
 
 body {
   height: 100%;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 // make all images responsive by default
@@ -118,3 +120,81 @@ a.default-style {
 .line-height-big {
   line-height: 2;
 }
+
+.btn {
+  font-size: 15px;
+}
+
+select {
+  @include border-radius(0);
+  height: 35px;
+  outline: none;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+.spin {
+  display: none;
+  @include animation(spin 1s infinite linear);
+}
+
+@include keyframes(spin) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+.spin-text {
+  display: none;
+}
+
+.processing {
+  .spin {
+    margin-right: 5px;
+    display: inline-block;
+  }
+
+  .spin-text {
+    display: inline-block;
+  }
+
+  .normal-text {
+    display: none;
+  }
+}
+
+.table-row {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.table-row > .table-col {
+  display: table-cell;
+}
+.vertical-middle {
+  vertical-align: middle;
+}
+.table-col.vertical-middle {
+  vertical-align: middle;
+}
+.table-col.vertical-bottom {
+  vertical-align: bottom;
+}
+.table-col.vertical-top {
+  vertical-align: top;
+}
+

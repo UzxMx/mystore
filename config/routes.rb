@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'orders/show'
+
   root 'store#shoe'
+
+  post 'orders/create' => 'orders#create'
 
   devise_for :admins, controllers: {
     sessions: 'admin/sessions'
@@ -8,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
   namespace :admin do
+    get 'orders' => 'orders#index'
+    post 'orders/:id/edit' => 'orders#edit', as: :edit_orders
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

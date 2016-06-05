@@ -32,8 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'compass-rails'
 gem 'devise', '~> 3.2'
 gem 'bootstrap-sass'
+gem "js-routes"
+
+gem 'sprockets-image_compressor'
+
+gem "browserify-rails"
 # gem 'puma'
 
 group :development, :test do

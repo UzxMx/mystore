@@ -1,1 +1,186 @@
-Coming soon...
+<div class="container-fixed-bottom">
+  <div class="table-row">
+    <div class="table-col vertical-middle">
+      <a href="#prefaceImageContainer">返回顶部</a>
+    </div>
+    <div class="table-col vertical-middle">
+      <a href="#orderSection" class="btn-buy-online">在线购买</a>
+    </div>
+    <div class="table-col vertical-middle">
+      <a href="#orderSection">货到付款</a>
+    </div>    
+  </div>
+</div>
+
+<div id="shoeImagesContainer">
+  <div class="container-shoe-header-gif">
+    <%= image_tag("shoe_header.gif", class: "shoe-header-gif") %>
+  </div>
+  <div id="prefaceImageContainer">
+    <%= image_tag("shoe_1.jpg", class: "product-page-image") %>
+  </div>
+  <div class="container-shoe-image-price">
+    <%= image_tag("shoe_2.jpg", class: "product-page-image") %>
+    <div class="container-btn-buy">
+      <a href="#orderSection" class="icons-buy-now"></a>
+    </div>
+  </div>
+  <% for i in 3..14 %>
+  <div>
+    <%= image_tag("shoe_#{i}.jpg", class: "product-page-image") %>
+  </div>
+  <% end %>
+
+  <div id="orderSection">
+    <div class="order-header">
+      <%= image_tag("online-order.png", class: "image-online-order") %>
+    </div>
+    <div class="order-info">
+      <div class="order-info-banner">
+        <span class="icons-arrow-down"></span>订单信息
+      </div>
+      <div class="order-info-body">
+        <div class="section-product-variant section-product-variant-color">
+          <div class="section-product-variant-title">颜色分类</div>
+          <div>
+            <span class="variant-option" data-value="silver">银色</span>
+            <span class="variant-option" data-value="gold">金色</span>
+          </div>
+        </div>
+        <div class="section-product-variant section-product-variant-size">
+          <div class="section-product-variant-title">尺码</div>
+          <div>
+            <% for i in 35..40 %>
+            <span class="variant-option" data-value="<%= i %>"><%= i %></span>
+            <% end %>
+          </div>
+
+          <div class="row row-standard-size">
+            <div class="col-xs-4">标准尺寸</div>
+            <div class="col-xs-8 col-view-size-helper"><span data-toggle="modal" data-target="#sizeHelperPopup">查看尺码助手</span></div>
+          </div>
+        </div>
+
+        <div class="section-product-variant section-product-variant-count">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="buy-count-banner">购买数量</div>
+            </div>
+            <div class="col-xs-8 col-count">
+              <span class="btn-minus">-</span>
+              <input type="number" value="1" name="productCount" id="productCount" />
+              <span class="btn-plus">+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-product-variant section-product-variant-receiver">
+          <div class="section-product-variant-title">收件信息</div>
+          <div>
+            <div class="row">
+              <div class="col-xs-5">
+                <div class="container-input-box container-input-box-name">
+                  <span class="icons-receiver"></span><input type="text" placeholder="收件人" name="receiverName" id="receiverName" /><span>*</span>
+                </div>
+              </div>
+              <div class="col-xs-7">
+                <div class="container-input-box container-input-box-phone">
+                  <span class="icons-phone"></span><input type="number" placeholder="联系电话" name="receiverPhone" id="receiverPhone" /><span>*</span>
+                </div>
+              </div>
+            </div>
+            <div class="row row-address">
+              <div class="col-xs-12">
+                <div class="container-input-box container-input-box-address">
+                  <span class="icons-address"></span><input type="text" placeholder="详细地址" name="receiverAddress" id="receiverAddress" /><span>*</span>
+                </div>
+              </div>
+            </div>            
+          </div>
+
+          <div class="row row-services">
+            <div class="col-xs-4 col-payment">
+              <div><span class="service-name">支付方式</span></div>
+              <div><span class="service-value">货到付款</span></div>
+            </div>
+            <div class="col-xs-4 col-transport">
+              <div><span class="service-name">快递公司</span></div>
+              <div><span  class="service-value">顺丰快递</span></div>
+            </div>
+            <div class="col-xs-4 col-giving">
+              <div><span class="service-name">赠品领取</span></div>
+              <div><span  class="service-value">增白神器</span></div>
+            </div>            
+          </div>
+        </div>
+
+        <div class="container-order-price">
+          <div>
+            总计：<span class="total-price">¥228</span><span style="margin: 0 10px;">/</span>运费：<span class="transport-price">¥0</span>
+          </div>
+          <div class="container-actual-total-price">
+            实付：¥<span class="actual-total-price">228</span>
+          </div>
+        </div>
+
+        <div class="container-buy-btn">
+          <button id="buyBtn">确定提交</button>
+        </div>
+
+        <div class="row container-purchase-services">
+          <div class="col-xs-4 col-refund">
+            <div><%= image_tag("refund.png") %></div>
+            <div class="purchase-service-title">七天包退换</div>
+          </div>
+          <div class="col-xs-4 col-transport-free">
+            <div><%= image_tag("transport-free.png") %></div>
+            <div class="purchase-service-title">顺丰免运费</div>
+          </div>
+          <div class="col-xs-4 col-pay-after-receive">
+            <div><%= image_tag("pay-after-receive.png") %></div>
+            <div class="purchase-service-title">全国货到付款</div>
+          </div>                    
+        </div>
+
+        <div class="container-icp">
+          ICP备案号：浙ICP备16016328号
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div id="sizeHelperPopup" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content" style="box-shadow: none;border: none;">
+      <div class="modal-header " style="text-align: right;border-bottom: none; padding-bottom:0">
+       <span data-dismiss="modal" class="icons-close">
+       </span>
+     </div>
+     <div class="modal-body" style="padding-top:5px">
+       <div><%= image_tag("size-helper.png", class: "image-size-helper") %></div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div id="inputErrorPopup" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content" style="box-shadow: none;border: none;">
+     <div class="modal-body">
+        <div class="container-icons"><span class="icons-important"></span></div>
+        <div class="container-error-message">
+        </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div id="messagePopup" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content" style="box-shadow: none;border: none;">
+     <div class="modal-body">
+     </div>
+   </div>
+ </div>
+</div>

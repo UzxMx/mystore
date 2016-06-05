@@ -1,3 +1,76 @@
 // Place all the styles related to the admin/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-total-count {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#orders {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  
+  tfoot td, thead td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tbody td {
+    border: none;
+  }
+
+  .col-receiver {
+    width: 35%;
+  }
+
+  .col-date {
+    width: 15%;
+  }
+
+  .row-actions {
+    margin-top: 10px;
+    visibility: hidden;
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    tr {
+      cursor: default;
+    }
+
+    tr:hover {
+      .row-actions {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.container-edit-order {
+  .title {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .col-name {
+    font-style: italic;
+  }
+
+  .container-footer {
+    margin-top: 30px;
+  }
+
+  .btn-cancel {
+    float: left;
+  }
+
+  .container-footer-right {
+    float: right;
+  }
+}
