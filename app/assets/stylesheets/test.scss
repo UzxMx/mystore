@@ -1,0 +1,61 @@
+@import "compass/utilities/sprites";
+
+$mysprites-use-percentages: true;
+// $mysprites-sprite-dimensions: true;
+$mysprites-layout: smart;
+
+@import "mysprites/*.png";
+@include all-mysprites-sprites;
+
+$map-path: sprite-path($mysprites-sprites);
+
+$map-width: image-width($map-path);
+$map-height: image-height($map-path);
+
+body.store.test {
+  .mysprites-phone {
+
+    display: inline-block;
+  }
+
+  .mysprites-phone.original-dimen {
+    width: mysprites-sprite-width(phone);
+    height: mysprites-sprite-height(phone);    
+  }
+
+  .mysprites-phone.half-dimen {
+    width: mysprites-sprite-width(phone) / 2;
+    height: mysprites-sprite-height(phone) / 2;    
+
+    background-size: $map-width / 2 $map-height / 2;
+  }
+
+  .mysprites-phone.test1 {
+    width: mysprites-sprite-width(phone) / 3;
+    height: mysprites-sprite-height(phone) / 3;    
+
+    background-size: $map-width / 3 $map-height / 3;
+  }  
+
+  .mysprites-phone.test2 {
+    width: mysprites-sprite-width(phone) * 2;
+    height: mysprites-sprite-height(phone) * 2;    
+
+    background-size: $map-width * 2 $map-height * 2;
+  } 
+  
+
+  .mysprites-phone.test3 {
+    width: mysprites-sprite-width(phone) * 4;
+    height: mysprites-sprite-height(phone) * 4;    
+
+    background-size: $map-width * 4 $map-height * 4;
+  }
+
+  .mysprites-phone.test4 {
+    width: mysprites-sprite-width(phone) * 2;
+    height: mysprites-sprite-height(phone);    
+
+    background-size: $map-width * 2 $map-height;
+  }     
+}

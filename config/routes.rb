@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post 'orders/create' => 'orders#create'
 
+  get 'test' => 'store#test'
+
   devise_for :admins, controllers: {
     sessions: 'admin/sessions'
   }
