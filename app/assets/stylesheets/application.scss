@@ -19,6 +19,8 @@
 @import "bootstrap";
 @import "toastr";
 
+@include font-face("YouYuan", font-url("simyou.ttf"));
+
 html {
   height: 100%;
 }
@@ -26,6 +28,8 @@ html {
 body {
   height: 100%;
   font-size: 15px;
+
+  font-family: YouYuan;
 }
 
 // make all images responsive by default

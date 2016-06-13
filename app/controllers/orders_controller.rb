@@ -32,6 +32,8 @@ class OrdersController < ApplicationController
       variants: JSON.generate(variants))
     order.save
 
+    OrderMailer.send_email_to_admin.deliver_later
+
     render json: {
       status: 1
     }

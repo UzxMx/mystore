@@ -1,7 +1,0 @@
-@import "compass/utilities/sprites";
-
-$icons-use-percentages: true;
-$icons-layout: smart;
-
-@import "icons/*.png";
-@include all-icons-sprites;

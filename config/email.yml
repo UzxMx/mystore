@@ -1,0 +1,13 @@
+development:
+  address: smtp.163.com
+  authentication: plain
+  user_name: username@example.com
+  password: password
+  enable_starttls_auto: true
+
+production:
+  address: smtp.163.com
+  authentication: plain
+  user_name: <%= ENV["EMAIL_USER_NAME"] %>
+  password: <%= ENV["EMAIL_PASSWORD"] %>
+  enable_starttls_auto: true

@@ -36,6 +36,15 @@ $breakPointIncrement: 0.5px;
 
 body.store {
 
+  span.btn {
+    cursor: pointer;
+  }
+
+  label {
+    margin: 0;
+    font-weight: normal;
+  }
+
   max-width: 600px;
   margin: 0 auto;
 
@@ -68,10 +77,15 @@ body.store {
       color: white;
       display: inline-block;
       width: 100%;
-      padding: 5px 0;
+      padding: 20px 0 10px 0;
+
+      span {
+        width: 100%;
+        display: inline-block;
+      }
     }
 
-    .btn-buy-online {
+    .btn-buy-online span {
       border-left: 1px solid white;
       border-right: 1px solid white;
     }
@@ -157,7 +171,7 @@ body.store {
         .variant-option {
           padding: 5px 10px;
           background-color: $defaultBgColor;
-          margin-right: 20px;
+          margin-right: 15px;
           @include border-radius(10px);
 
           &.selected {

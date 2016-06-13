@@ -138,7 +138,7 @@
             });
             timeout_handler = setTimeout(function() {
               modal.hide();
-            }, 5 * 1000);
+            }, 3.5 * 1000);
           }).on('hide.bs.modal', function() {
             $('body').removeClass('overlay-transparent');
             clearTimeout(timeout_handler);

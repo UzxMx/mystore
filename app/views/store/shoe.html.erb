@@ -1,13 +1,21 @@
+<% provide :title, "百变女神官方旗舰店" %>
+
 <div class="container-fixed-bottom">
   <div class="table-row">
     <div class="table-col vertical-middle">
-      <a href="#prefaceImageContainer">返回顶部</a>
+      <a href="#prefaceImageContainer">
+        <span>返回顶部</span>
+      </a>
     </div>
     <div class="table-col vertical-middle">
-      <a href="#orderSection" class="btn-buy-online">在线购买</a>
+      <a href="#orderSection" class="btn-buy-online">
+        <span>在线购买</span>
+      </a>
     </div>
     <div class="table-col vertical-middle">
-      <a href="#orderSection">货到付款</a>
+      <a href="#orderSection">
+        <span>货到付款</span>
+      </a>
     </div>    
   </div>
 </div>
@@ -53,13 +61,13 @@
           <div class="section-product-variant-title">尺码</div>
           <div>
             <% for i in 35..40 %>
-            <span class="variant-option" data-value="<%= i %>"><%= i %></span>
+            <label class="variant-option" data-value="<%= i %>"><%= i %></label>
             <% end %>
           </div>
 
           <div class="row row-standard-size">
             <div class="col-xs-4">标准尺寸</div>
-            <div class="col-xs-8 col-view-size-helper"><span data-toggle="modal" data-target="#sizeHelperPopup">查看尺码助手</span></div>
+            <div class="col-xs-8 col-view-size-helper"><span class="btn" data-toggle="modal" data-target="#sizeHelperPopup">查看尺码助手</span></div>
           </div>
         </div>
 
@@ -111,7 +119,7 @@
             </div>
             <div class="col-xs-4 col-giving">
               <div><span class="service-name">赠品领取</span></div>
-              <div><span  class="service-value">增白神器</span></div>
+              <div><span class="service-value">增白神器</span></div>
             </div>            
           </div>
         </div>
