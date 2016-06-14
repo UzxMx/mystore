@@ -172,6 +172,7 @@ body.store {
           padding: 5px 10px;
           background-color: $defaultBgColor;
           margin-right: 15px;
+          margin-bottom: 10px;
           @include border-radius(10px);
 
           &.selected {
@@ -195,6 +196,11 @@ body.store {
         .section-product-variant-size {
           .row-standard-size {
             margin-top: 20px;
+
+            div {
+              height: 33px;
+              line-height: 33px;
+            }
           }
 
           .col-view-size-helper {
@@ -209,6 +215,10 @@ body.store {
         }
 
         .section-product-variant-count {
+          .col-banner, .col-count {
+            height: 30px;
+          }
+
           .buy-count-banner {
             border-left: 3px solid #5a88e3;
             padding-left: 5px;            
@@ -216,6 +226,7 @@ body.store {
 
           .col-count {
             text-align: right;
+            line-height: 30px;
           }
 
           .btn-minus, .btn-plus, #productCount {
@@ -396,8 +407,8 @@ body.store {
 
     .icons-close {
       display: inline-block;
-      width: 15px;
-      height: 15px;
+      width: 21px;
+      height: 21px;
     }
   }
 

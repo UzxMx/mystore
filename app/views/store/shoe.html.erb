@@ -61,20 +61,24 @@
           <div class="section-product-variant-title">尺码</div>
           <div>
             <% for i in 35..40 %>
-            <label class="variant-option" data-value="<%= i %>"><%= i %></label>
+            <label class="variant-option" data-value="<%= i %>" style="padding-left:5px;padding-right:5px;"><span style="opacity:0;">q</span><span><%= i %></span><span style="opacity:0;">q</span></label>
             <% end %>
           </div>
 
           <div class="row row-standard-size">
-            <div class="col-xs-4">标准尺寸</div>
+            <div class="col-xs-4">标准尺码</div>
             <div class="col-xs-8 col-view-size-helper"><span class="btn" data-toggle="modal" data-target="#sizeHelperPopup">查看尺码助手</span></div>
           </div>
         </div>
 
         <div class="section-product-variant section-product-variant-count">
           <div class="row">
-            <div class="col-xs-4">
-              <div class="buy-count-banner">购买数量</div>
+            <div class="col-xs-4 col-banner">
+              <div class="table-row">
+                <div class="table-col vertical-middle">
+                  <div class="buy-count-banner">购买数量</div>
+                </div>
+              </div>
             </div>
             <div class="col-xs-8 col-count">
               <span class="btn-minus">-</span>
