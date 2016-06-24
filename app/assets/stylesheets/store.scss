@@ -36,6 +36,10 @@ $breakPointIncrement: 0.5px;
 
 body.store {
 
+  a[title="站长统计"] {
+    display: none;
+  }
+
   span.btn {
     cursor: pointer;
   }
