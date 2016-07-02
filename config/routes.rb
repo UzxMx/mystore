@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'watch' => 'store#watch'
 
+  get 'watch01/souhu' => 'store#watch'
+
   get 'orders/watch_succeed'
 
   get 'test' => 'store#test'
