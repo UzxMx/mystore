@@ -31,6 +31,8 @@
         <% for order in @orders %>
           <% product = order.product %>
           <% variants = JSON.parse(order.variants) %>
+          <% if product.id == 1 %>
+
           <tr id="order-<%= order.id %>">
             <td class="col-order">
               <div class="row">
@@ -85,6 +87,62 @@
             </td>
             <td class="col-date"><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
           </tr>
+
+          <% elsif product.id == 2 %>
+
+          <tr id="order-<%= order.id %>">
+            <td class="col-order">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="col-name">编号：</span>
+                  <span class="col-value"><%= order.id %></span>
+                </div>            
+                <div class="col-sm-8">
+                  <span class="col-name">状态：</span>
+                  <span class="col-value col-status" data-status="<%= Order.statuses[order.status] %>"><%= t(order.status) %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">商品：</span>
+                    <span class="col-value"><%= product.name %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">数量：</span>
+                    <span class="col-value"><%= order.count %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">总价：</span>
+                    <span class="col-value"><%= product.price * order.count %></span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="col-name">颜色：</span>
+                    <span class="col-value"><%= t(variants['color']) %></span>
+                </div>
+                <div class="col-sm-12 row-actions">
+                  <button class="btn-link btn-edit-order">编辑</button>
+                </div>
+              </div>
+            </td>
+            <td class="col-receiver">
+              <div class="row">
+                <div class="col-sm-4">
+                    <span class="col-name">姓名：</span>
+                    <span class="col-value"><%= order.receiver_name %></span>
+                </div>
+                <div class="col-sm-8">
+                    <span class="col-name">手机号：</span>
+                    <span class="col-value"><%= order.receiver_phone %></span>
+                </div>
+                <div class="col-sm-12">
+                    <span class="col-name">地址：</span>
+                    <span class="col-value"><%= order.receiver_address %></span>
+                </div>
+              </div>
+            </td>
+            <td class="col-date"><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          </tr>
+
+          <% end %>
+
         <% end %>
       <% else %>
         <tr><td colspan="3">没有相应的订单</td></tr>

@@ -7,20 +7,31 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'json'
 
-admin = Admin.new(
-  email: '327110424@163.com',
-  password: 'MxyXmx123.',
-  password_confirmation: 'MxyXmx123.')
-admin.save
+# admin = Admin.new(
+#   email: '327110424@163.com',
+#   password: 'MxyXmx123.',
+#   password_confirmation: 'MxyXmx123.')
+# admin.save
+
+# product_variants = {
+#   color: ["silver", "gold"],
+#   size: [35, 36, 37, 38, 39, 40]
+# }
+# product = Product.new(
+#   name: '小白鞋',
+#   price: 228,
+#   variants: JSON.generate(product_variants))
+# product.save
 
 product_variants = {
-  color: ["silver", "gold"],
-  size: [35, 36, 37, 38, 39, 40]
+  color: ["gwhite", "pwhite"]
 }
+
 product = Product.new(
-  name: '小白鞋',
-  price: 228,
+  name: '手表',
+  price: 398,
   variants: JSON.generate(product_variants))
+
 product.save
 
 # variants = {

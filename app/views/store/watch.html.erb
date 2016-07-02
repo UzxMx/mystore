@@ -1,43 +1,89 @@
-<% provide :title, "百变女神官方旗舰店" %>
+<% provide :title, "TEVISE官方旗舰店" %>
 
 <div class="container-fixed-bottom">
-  <div class="table-row">
-    <div class="table-col vertical-middle">
-      <a href="#shoeImagesContainer">
-        <span>返回顶部</span>
-      </a>
+  <div class="row">
+    <div class="col-xs-9 col-details">
+      <div class="table-row">
+        <div class="table-col vertical-middle">
+          <div>
+            <span class="icons-plus"></span>
+            <span>特维斯1号仓库发货</span>
+          </div>
+          <div>
+            <span class="icons-timer"></span>
+            <div class="container-time-price">
+              <div class="container-time"><span class="time time-day">00</span><span>:</span><span class="time time-hour">00</span><span>:</span><span class="time time-minute">00</span><span>:</span><span class="time time-second">00</span>
+              </div>
+              <div class="container-price">
+                ¥<%= @watch.price.to_i %>限时抢购
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="table-col vertical-middle">
-      <a href="#orderSection" class="btn-buy-online">
-        <span>在线购买</span>
-      </a>
-    </div>
-    <div class="table-col vertical-middle">
-      <a href="#orderSection">
-        <span>货到付款</span>
-      </a>
+    <div class="col-xs-3 col-buy">
+      <div class="table-row">
+        <div class="table-col vertical-middle">
+          <a class="btn-link-buy" href="#orderSection">立即购买</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div id="shoeImagesContainer">
-  <div class="container-shoe-header-gif">
-    <%= image_tag("shoe_header.gif", class: "shoe-header-gif") %>
+<div id="watch-images-container">
+  <div>
+    <%= image_tag("watch-1.jpg", class: "product-page-image") %>
   </div>
-  <div id="prefaceImageContainer">
-    <%= image_tag("shoe_1.jpg", class: "product-page-image") %>
-  </div>
-  <div class="container-shoe-image-price">
-    <%= image_tag("shoe_2.jpg", class: "product-page-image") %>
-    <div class="container-btn-buy">
-      <a href="#orderSection">
-        <%= image_tag("buy-now.png", class: "image-buy-now") %>
-      </a>
+
+  <div id="container-watch-price">
+    <div class="row">
+      <div class="col-xs-3 col-price-info">
+        <div class="table-row">
+          <div class="table-col vertical-middle">
+            <span class="currency-symbol">¥</span>
+            <span class="price"><%= @watch.price.to_i %></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4 col-other-info">
+        <div class="table-row">
+          <div class="table-col vertical-middle">
+            <div>
+              <span class="watch-old-price">¥3980元</span>
+              <span class="icons-watch-10-percent"></span>
+            </div>
+            <div>
+              19750件已售
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-5 col-timer">
+        <div class="icons-timer-bg">
+          <div class="description">距结束仅剩</div>
+          <div class="container-time"><span class="time time-day">00</span><span>:</span><span class="time time-hour">00</span><span>:</span><span class="time time-minute">00</span><span>:</span><span class="time time-second">00</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <% for i in 3..14 %>
+
   <div>
-    <%= image_tag("shoe_#{i}.jpg", class: "product-page-image") %>
+    <%= image_tag("watch-2.jpg", class: "product-page-image") %>
+  </div>
+
+  <div>
+    <div class="container-btn-buy">
+      <a href="#orderSection" class="icons-watch-buy-now">
+      </a>
+    </div>
+  </div> 
+
+  <% for i in 3..28 %>
+  <div>
+    <%= image_tag("watch-#{i}.jpg", class: "product-page-image") %>
   </div>
   <% end %>
 
@@ -53,21 +99,8 @@
         <div class="section-product-variant section-product-variant-color">
           <div class="section-product-variant-title">颜色分类</div>
           <div>
-            <span class="variant-option" data-value="silver">银色</span>
-            <span class="variant-option" data-value="gold">金色</span>
-          </div>
-        </div>
-        <div class="section-product-variant section-product-variant-size">
-          <div class="section-product-variant-title">尺码</div>
-          <div>
-            <% for i in 35..40 %>
-            <label class="variant-option" data-value="<%= i %>" style="padding-left:5px;padding-right:5px;"><span style="opacity:0;">q</span><span><%= i %></span><span style="opacity:0;">q</span></label>
-            <% end %>
-          </div>
-
-          <div class="row row-standard-size">
-            <div class="col-xs-4">标准尺码</div>
-            <div class="col-xs-8 col-view-size-helper"><span class="btn" data-toggle="modal" data-target="#sizeHelperPopup">查看尺码助手</span></div>
+            <span class="variant-option" data-value="gwhite">钢带白色款</span>
+            <span class="variant-option" data-value="pwhite">皮带白色款</span>
           </div>
         </div>
 
@@ -111,29 +144,14 @@
               </div>
             </div>            
           </div>
-
-          <div class="row row-services">
-            <div class="col-xs-4 col-payment">
-              <div><span class="service-name">支付方式</span></div>
-              <div><span class="service-value">货到付款</span></div>
-            </div>
-            <div class="col-xs-4 col-transport">
-              <div><span class="service-name">快递公司</span></div>
-              <div><span  class="service-value">顺丰快递</span></div>
-            </div>
-            <div class="col-xs-4 col-giving">
-              <div><span class="service-name">赠品领取</span></div>
-              <div><span class="service-value">增白神器</span></div>
-            </div>            
-          </div>
         </div>
 
         <div class="container-order-price">
           <div>
-            总计：<span class="total-price">¥228</span><span style="margin: 0 10px;">/</span>运费：<span class="transport-price">¥0</span>
+            总计：<span class="total-price">¥<%= @watch.price.to_i %></span><span style="margin: 0 10px;">/</span>运费：<span class="transport-price">¥0</span>
           </div>
           <div class="container-actual-total-price">
-            实付：¥<span class="actual-total-price">228</span>
+            实付：¥<span class="actual-total-price"><%= @watch.price.to_i %></span>
           </div>
         </div>
 
@@ -143,15 +161,15 @@
 
         <div class="row container-purchase-services">
           <div class="col-xs-4 col-refund">
-            <div><%= image_tag("refund.png") %></div>
+            <div><%= image_tag("watch-refund.png") %></div>
             <div class="purchase-service-title">七天包退换</div>
           </div>
           <div class="col-xs-4 col-transport-free">
-            <div><%= image_tag("transport-free.png") %></div>
+            <div><%= image_tag("watch-transport-free.png") %></div>
             <div class="purchase-service-title">顺丰免运费</div>
           </div>
           <div class="col-xs-4 col-pay-after-receive">
-            <div><%= image_tag("pay-after-receive.png") %></div>
+            <div><%= image_tag("watch-pay-after-receive.png") %></div>
             <div class="purchase-service-title">全国货到付款</div>
           </div>                    
         </div>
@@ -164,20 +182,6 @@
       </div>
     </div>
   </div>  
-</div>
-
-<div id="sizeHelperPopup" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content" style="box-shadow: none;border: none;">
-      <div class="modal-header " style="text-align: right;border-bottom: none; padding-bottom:0">
-       <span data-dismiss="modal" class="icons-close">
-       </span>
-     </div>
-     <div class="modal-body" style="padding-top:5px">
-       <div><%= image_tag("size-helper.png", class: "image-size-helper") %></div>
-     </div>
-   </div>
- </div>
 </div>
 
 <div id="inputErrorPopup" class="modal">
